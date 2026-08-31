@@ -216,7 +216,7 @@
   h4,
   h5 {
     color: #fafafa;
-    font-family: $sans-ui-mono;
+    font-family: $sans-ui;
   }
 
   .meta-wrapper {
@@ -274,7 +274,7 @@
       padding: 0 40px;
 
       &-item {
-        font-family: $sans-ui-mono;
+        font-family: $sans-text;
         font-size: clamped(14px, 16px, 380px, 1920px);
         font-variation-settings: 'wght' 400;
         font-weight: 400;

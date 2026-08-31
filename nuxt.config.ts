@@ -131,15 +131,15 @@ export default defineNuxtConfig({
         name: 'TWK Everett',
         provider: 'none',
         src: `${fontBase}TWKEverett-Medium.woff2`,
-        weight: 400,
+        weight: 500,
         style: 'normal',
       },
     ],
   },
 
   colorMode: {
-    preference: 'dark',
-    fallback: 'dark',
+    preference: 'light',
+    fallback: 'light',
   },
 
   mdc: {

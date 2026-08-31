@@ -5,7 +5,7 @@
   const isDown = ref(false)
   const isMobileActive = ref(false)
   const isAnimating = ref(false)
-  const isLightMode = ref<boolean>(false)
+  const isLightMode = ref<boolean>(true)
   const route = useRoute()
   const navbarStore = useNavbarStore()
   const { $gsap } = useNuxtApp()
