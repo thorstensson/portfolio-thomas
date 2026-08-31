@@ -142,8 +142,11 @@
   onMounted(async () => {
     const { $gsap } = useNuxtApp()
 
-    if (process.client) {
-      await import('@mux/mux-player')
+    /* Mux Player itself is loaded app-wide by plugins/mux.client.ts. We only
+       wait for the element to be upgraded, so play()/pause() exist on the refs
+       below — normally a microtask, since the plugin fired at app start. */
+    if (import.meta.client && proj.value?.video?.length) {
+      await customElements.whenDefined('mux-player')
     }
 
     /* Defer heavy GSAP setup to next tick for smoother navigation */
@@ -202,7 +205,7 @@
     }) /* Close nextTick */
 
     /* Add video intersection observer only if project has video */
-    if (process.client && proj.value?.video?.[0]?.playbackId) {
+    if (import.meta.client && proj.value?.video?.[0]?.playbackId) {
       nextTick(() => {
         if (muxPlayer.value) {
           videoObserver = new IntersectionObserver(
@@ -224,7 +227,7 @@
     }
 
     /* Add back button intersection observer */
-    if (process.client && proj.value?.video?.[1]?.playbackId) {
+    if (import.meta.client && proj.value?.video?.[1]?.playbackId) {
       nextTick(() => {
         if (muxPlayer2.value) {
           videoObserver2 = new IntersectionObserver(
@@ -317,7 +320,7 @@
                 disable-cookies
                 rendition-order="desc"
                 max-resolution="1080p"
-                preload="metadata"
+                preload="auto"
                 prefer-playback="mse"
                 accent-color="#fff"
                 primary-color="#FFFFFFF"

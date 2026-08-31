@@ -227,7 +227,7 @@
   }
 
   onMounted(async () => {
-    if (process.client) {
+    if (import.meta.client) {
       import('@/pages/project/[id].vue')
     }
 

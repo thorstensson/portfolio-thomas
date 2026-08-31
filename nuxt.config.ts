@@ -240,6 +240,7 @@ export default defineNuxtConfig({
   plugins: [
     { src: '@/plugins/gsap.client.ts', mode: 'client' },
     { src: '@/plugins/lenis.client.ts', mode: 'client' },
+    { src: '@/plugins/mux.client.ts', mode: 'client' },
   ],
 
   /* @ts-ignore */
