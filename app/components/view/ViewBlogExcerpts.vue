@@ -63,7 +63,7 @@
       />
 
       <main class="excerpts">
-        <div class="excerpts__info" v-for="post in dateSorted" :key="post.id">
+        <div class="excerpts__info" v-for="post in dateSorted" :key="post.slug">
           <NuxtLink :to="`/blog-post/${post.slug}`">
             <div class="excerpts__item action" data-name="menu">
               <div class="excerpts__item__title excerpts__item__title--date">

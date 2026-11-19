@@ -377,7 +377,7 @@
             <a
               data-name="menu"
               class="contact action magnet"
-              href="mailto:someone@example.com"
+              href="mailto:hello@thomasthorstensson.com"
               >hello@thomasthorstensson.com</a
             >
           </template>

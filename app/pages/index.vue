@@ -36,7 +36,7 @@
       jobTitle: 'Creative Developer & Designer',
       url: 'https://thomasthorstensson.com',
       sameAs: [
-        'https://https://github.com/thorstensson',
+        'https://github.com/thorstensson',
         'https://linkedin.com/in/thomasthorstensson',
         'https://bsky.app/profile/thorstensson.bsky.social',
       ],
