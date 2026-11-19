@@ -31,7 +31,7 @@
       </div>
     </footer>
     <CommonInfoLabel
-      label="2026 by Thomas"
+      label="2026 / by Thomas / Nuxt 4."
       :class-name="'photo-label'"
       :hpos="'flex-end'"
       :vpos="'flex-end'"

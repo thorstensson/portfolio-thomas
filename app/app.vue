@@ -28,10 +28,9 @@
   const loadingText = ref<SVGTextElement | null>(null)
 
   /*
-    The simplistic approach with not turning venice blinds into a component works the fastest.
-
-    Here, tight coupling works: because speed on initialization is of essence. Not bouncing
-    around subccomponent props and waiting for them to mount. (Love that, but not here.)
+    The blinds live in CommonVenice.vue as markup and styles only. All control stays here and
+    in middleware/page.global.ts, targeting the classes directly, so nothing waits on component
+    props or mounting.
 
     TODO: Writeup about how middleware can be used to enhance page transitions in Nuxt.
     */
@@ -213,23 +212,7 @@
 </script>
 
 <template>
-  <div class="venice">
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-    <div class="venice__blind"></div>
-  </div>
+  <CommonVenice />
   <div class="preloader" :class="{ 'is-visible': showIntroAnimation }">
     <svg class="preloader__svg" viewBox="0 0 800 100">
       <!-- Top line -->
@@ -494,48 +477,6 @@
       color: $secondary;
       opacity: 0;
       transition: opacity 0.5s ease;
-    }
-  }
-
-  .venice {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    position: fixed;
-    z-index: 9999;
-    pointer-events: none;
-    background-repeat: no-repeat;
-    background-position: center center;
-    visibility: visible;
-    overflow: hidden;
-    display: flex;
-    contain: layout style paint;
-    will-change: opacity, visibility;
-    transform: translateZ(0); /* Force hardware acceleration */
-    backface-visibility: hidden;
-    perspective: 1000px; /* Add perspective for 3D rotation */
-    pointer-events: none;
-
-    &__blind {
-      position: relative;
-      top: 0;
-      overflow: hidden;
-      flex: 1;
-      height: 100%;
-      background-color: $primary;
-      margin-left: -1px;
-      will-change: transform, opacity;
-      transform: translateZ(0); /* Force hardware acceleration */
-      backface-visibility: hidden;
-      contain: layout style paint;
-      pointer-events: none;
-
-      &:first-child {
-        margin-left: 0;
-      }
     }
   }
 </style>
