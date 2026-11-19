@@ -7,38 +7,12 @@ export const useBlogStore = defineStore('blog', {
     error: null as Error | string | null,
   }),
 
-  persist: true,
-
   actions: {
     // 2. Regular function (ensures 'this' works)
     async fetchData() {
       try {
-        const response = (await $fetch('/api/graphql', {
-          method: 'POST',
-          body: {
-            query: `
-                            query blog {
-                                posts {
-                                    content
-                                    slug
-                                    title
-                                    subject
-                                    date
-                                    length
-                                    tags
-                                    authors {
-                                        name
-                                    }
-                                    coverImage {
-                                        id
-                                        handle
-                                        fileName
-                                    }
-                                }
-                            }
-                        `,
-          },
-        })) as any
+        /* Query lives server-side in server/api/blog.get.ts */
+        const response = (await $fetch('/api/blog')) as any
 
         // 3. Assign directly to 'this'
         this.data = response.data
