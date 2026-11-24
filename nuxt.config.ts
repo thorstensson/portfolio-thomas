@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/blog-post/**': { isr: 3600 },
+    '/blog-post/**': { isr: 60 },
   },
 
   /* Enhanced SEO Configuration */
