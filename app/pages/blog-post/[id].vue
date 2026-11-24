@@ -370,6 +370,10 @@
     font-size: clamped(16px, 18px, 380px, 1920px);
   }
 
+  :deep(.mdc-content h2) {
+    margin-top: $px-64-spacer;
+  }
+
   :deep(img) {
     max-width: 100%;
     height: auto;
